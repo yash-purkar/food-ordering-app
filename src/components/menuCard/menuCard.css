@@ -1,0 +1,25 @@
+.menu_card {
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    width: 17rem;
+    min-height: 27rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu_card_image{
+    width: 100%;
+    height: 40%;
+}
+
+.menu_card h2{
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: gray;
+    margin-bottom: 1rem;
+}
+.menu_card .desc, .menu_card .price, .menu_card .delievery_time{
+    color: gray;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}

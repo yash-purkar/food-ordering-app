@@ -1,0 +1,11 @@
+.menus_container {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.menus {
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}

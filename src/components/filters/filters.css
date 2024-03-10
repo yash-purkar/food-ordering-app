@@ -1,0 +1,28 @@
+.filters_container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  margin: 3rem 0;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.filter input, .filter label{
+    cursor: pointer;
+}
+
+.clear_filters{
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #f97316;
+    font-weight: bold;
+}
