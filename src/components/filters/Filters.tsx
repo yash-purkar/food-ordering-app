@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import "./filters.css";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { addFilter } from "../../redux/slices/filtersSlice";
+import { addFilter, clearFilters } from "../../redux/slices/filtersSlice";
 
 type FilterName = "searchQuery" | "veg" | "spicy" | "sort";
 
@@ -14,12 +14,17 @@ export const Filters = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
+    // in other cases no need to pass value
     if (name === "searchQuery" || name === "sort") {
       dispatch(addFilter({ filterName: name, value }));
     } else {
       dispatch(addFilter({ filterName: name as FilterName, value: null }));
     }
   };
+
+  const handleClearFilters =() => {
+    dispatch(clearFilters())
+  }
 
   return (
     <div className="filters_container">
@@ -73,6 +78,7 @@ export const Filters = () => {
         />
         <label htmlFor="highToLow">High to low</label>
       </div>
+      <button onClick={handleClearFilters} className="clear_filters">clear filters</button>
     </div>
   );
 };

@@ -17,3 +17,12 @@
 .filter input, .filter label{
     cursor: pointer;
 }
+
+.clear_filters{
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #f97316;
+    font-weight: bold;
+}

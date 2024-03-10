@@ -4,7 +4,7 @@ interface InitialState {
   searchQuery: string;
   veg: boolean;
   spicy: boolean;
-  sort:string | null;
+  sort: string | null;
 }
 
 interface Payload {
@@ -16,7 +16,7 @@ const initialState: InitialState = {
   searchQuery: "",
   veg: false,
   spicy: false,
-  sort:null
+  sort: null,
 };
 
 export const filtersSlice = createSlice({
@@ -25,14 +25,20 @@ export const filtersSlice = createSlice({
   reducers: {
     addFilter: (state, action: PayloadAction<Payload>) => {
       const { filterName, value } = action.payload;
-      if (filterName === "searchQuery" || filterName === 'sort') {
+      if (filterName === "searchQuery" || filterName === "sort") {
         state[filterName] = value as string;
       } else {
         state[filterName] = !state[filterName] as boolean;
       }
     },
+    clearFilters: (state) => {
+      state.searchQuery = "";
+      state.sort = null;
+      state.veg = false;
+      state.spicy = false;
+    },
   },
 });
 
-export const { addFilter } = filtersSlice.actions;
+export const { addFilter,clearFilters } = filtersSlice.actions;
 export default filtersSlice.reducer;
