@@ -1,0 +1,11 @@
+1st create store add reducers in that
+create slice for menus in that use extraReducers for handling async operations
+create async thunk to fetch api,
+give name to that. in 1st argument and do what you want in the 2nd parameter which is callback.
+
+and if you want to use this data you have to dispatch the action
+
+in component
+
+dispatch(asyncThunkName());
+now it will fetch the data.

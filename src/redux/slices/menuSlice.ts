@@ -3,7 +3,7 @@ import { fakeFetch } from "../../services/menuServices";
 import { type MenuItem } from "../../types";
 
 type InitialState = {
-  menus: MenuItem[];
+  menus: any;
   status: string;
   error: any;
 };
@@ -15,7 +15,7 @@ const initialState: InitialState = {
 };
 
 // Creating async thunk to call an api
-const fetchDataFromFakeFetch = createAsyncThunk(
+export const fetchDataFromFakeFetch = createAsyncThunk(
   "menu/fetchDataFromFakeFetch",
   async () => {
     const result = await fakeFetch("https://example.com/api/menu");
@@ -34,7 +34,9 @@ const menuSlice = createSlice({
     });
     builder.addCase(fetchDataFromFakeFetch.fulfilled, (state, action) => {
       state.status = "success";
-      state.menus = action.payload as MenuItem[];
+      //   setting data in state
+      const actionPayload = action.payload as { data: MenuItem[] };
+      state.menus = actionPayload;
     });
     builder.addCase(fetchDataFromFakeFetch.rejected, (state, action) => {
       state.status = "error";

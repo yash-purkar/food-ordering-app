@@ -47,7 +47,7 @@ export const fakeFetch = (url:string) => {
                     'Fettuccine pasta with creamy Alfredo sauce and grilled chicken.',
                   price: 13.99,
                   image:
-                    'https://assets.kraftfoods.com/recipe_images/opendeploy/120201_640x428.jpg',
+                    'https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                   is_vegetarian: false,
                   is_spicy: false,
                   delivery_time: 40,
