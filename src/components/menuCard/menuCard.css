@@ -1,7 +1,7 @@
 .menu_card {
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
     width: 17rem;
-    height: 22rem;
+    min-height: 25rem;
 }
 
 .menu_card_image{

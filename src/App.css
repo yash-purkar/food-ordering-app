@@ -17,3 +17,8 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+
+.no_items_msg{
+  color: gray;
+  text-align: center;
+}

@@ -6,10 +6,12 @@ type InitialState = {
   menus: any;
   status: string;
   error: any;
+  cart: MenuItem[];
 };
 
 const initialState: InitialState = {
   menus: [],
+  cart: [],
   status: "init",
   error: null,
 };
@@ -26,7 +28,14 @@ export const fetchDataFromFakeFetch = createAsyncThunk(
 const menuSlice = createSlice({
   name: "menu",
   initialState,
-  reducers: {},
+  reducers: {
+    addToCart: (state, action) => {
+      state.cart.push(action.payload);
+    },
+    removeFromCart: (state,action) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload);
+    }
+  },
   //   It handles the states of the async operation
   extraReducers: (builder) => {
     builder.addCase(fetchDataFromFakeFetch.pending, (state) => {
@@ -45,4 +54,5 @@ const menuSlice = createSlice({
   },
 });
 
+export const { addToCart,removeFromCart } = menuSlice.actions;
 export default menuSlice.reducer;

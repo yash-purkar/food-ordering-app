@@ -56,7 +56,7 @@ export const fakeFetch = (url:string) => {
                   id: 5,
                   name: 'Tiramisu',
                   description:
-                    'Classic Italian dessert with ladyfingers, espresso, and mascarpone cream.',
+                    'Classic Italian dessert with ladyfingers, espresso cream.',
                   price: 6.99,
                   image:
                     'https://www.countdown.co.nz/Content/Recipes/224513%20Tiramisu%20810x570.jpg',
