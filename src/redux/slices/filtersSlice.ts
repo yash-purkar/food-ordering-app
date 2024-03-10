@@ -4,7 +4,7 @@ interface InitialState {
   searchQuery: string;
   veg: boolean;
   spicy: boolean;
-  sort:string
+  sort:string | null;
 }
 
 interface Payload {
@@ -16,7 +16,7 @@ const initialState: InitialState = {
   searchQuery: "",
   veg: false,
   spicy: false,
-  sort:'lowToHigh'
+  sort:null
 };
 
 export const filtersSlice = createSlice({

@@ -10,21 +10,49 @@ import { Filters } from "../filters/Filters";
 export const Menus = () => {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.menus);
+  const filters = useAppSelector((state) => state.filters);
+  const { searchQuery, veg, spicy, sort } = filters;
+
+  const transformData = (data: MenuItem[] = []) => {
+    let filteredData = [...data];
+    if (searchQuery) {
+      filteredData = filteredData.filter((menu) =>
+        menu.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    if (veg) {
+      filteredData = filteredData.filter((menu) => menu.is_vegetarian);
+    }
+
+    if (spicy) {
+      filteredData = filteredData.filter((menu) => menu.is_spicy);
+    }
+
+    //it will change original arra somehow, so don't need to assign it again
+    filteredData.sort((a, b) =>
+      sort === "lowToHigh" ? a.price - b.price : b.price - a.price
+    );
+
+    return filteredData;
+  };
+
+  const menus = transformData(data?.menus?.data?.menu)
 
   useEffect(() => {
     dispatch(fetchDataFromFakeFetch());
   }, []);
-  console.log(data);
+
   return (
     <div className="menus_container">
       <Navbar />
-      <Filters/>
+      <Filters />
       <div className="menus">
-        {data?.menus?.data?.menu?.map((menu: MenuItem) => (
+        {menus?.map((menu: MenuItem) => (
           <MenuCard key={menu.id} menu={menu} />
         ))}
       </div>
-      {data?.menus?.data?.menu?.length === 0 && <h2>No items found</h2>}
+      {menus?.length === 0 && <h2 className="no_items_msg">No items found</h2>}
     </div>
   );
 };
