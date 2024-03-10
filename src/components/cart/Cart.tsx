@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { MenuCard } from "../menuCard/MenuCard";
 import { MenuItem } from "../../types";
 import { Navbar } from "../navbar/Navbar";

@@ -20,7 +20,6 @@ const initialState: InitialState = {
 export const fetchDataFromFakeFetch = createAsyncThunk(
   "menu/fetchDataFromFakeFetch",
   async () => {
-    console.log("first")
     const result = await fakeFetch("https://example.com/api/menu");
     return result;
   }
