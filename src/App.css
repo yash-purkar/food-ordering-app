@@ -1,4 +1,19 @@
 * {
   margin: 0;
   padding: 0;
+  letter-spacing: 1px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.button_primary{
+  background-color: #f97316;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #f97316;
+  color: #fff;
+  margin: 1rem 0;
+}
+
+.button_primary:hover{
+  cursor: pointer;
+  transform: scale(1.1);
 }

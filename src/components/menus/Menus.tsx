@@ -4,6 +4,7 @@ import { fetchDataFromFakeFetch } from "../../redux/slices/menuSlice";
 import { MenuCard } from "./menuCard/MenuCard";
 import { MenuItem } from "../../types";
 import './menus.css'
+import { Navbar } from "../navbar/Navbar";
 
 export const Menus = () => {
   const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ export const Menus = () => {
 
   return (
     <div className="menus_container">
-
+<Navbar/>
     <div className="menus">
       {menus?.data?.menu?.map((menu: MenuItem) => (
         <MenuCard key={menu.id} menu={menu}/>

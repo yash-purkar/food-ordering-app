@@ -10,9 +10,10 @@
 }
 
 .menu_card h2{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     letter-spacing: 1px;
     color: gray;
+    margin-bottom: 1rem;
 }
 .menu_card .desc, .menu_card .price, .menu_card .delievery_time{
     color: gray;
