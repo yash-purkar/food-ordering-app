@@ -1,0 +1,38 @@
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+interface InitialState {
+  searchQuery: string;
+  veg: boolean;
+  spicy: boolean;
+  sort:string
+}
+
+interface Payload {
+  filterName: "searchQuery" | "veg" | "spicy" | "sort";
+  value: string | null;
+}
+
+const initialState: InitialState = {
+  searchQuery: "",
+  veg: false,
+  spicy: false,
+  sort:'lowToHigh'
+};
+
+export const filtersSlice = createSlice({
+  name: "filters",
+  initialState,
+  reducers: {
+    addFilter: (state, action: PayloadAction<Payload>) => {
+      const { filterName, value } = action.payload;
+      if (filterName === "searchQuery" || filterName === 'sort') {
+        state[filterName] = value as string;
+      } else {
+        state[filterName] = !state[filterName] as boolean;
+      }
+    },
+  },
+});
+
+export const { addFilter } = filtersSlice.actions;
+export default filtersSlice.reducer;
