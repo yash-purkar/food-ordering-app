@@ -30,10 +30,12 @@ export const Menus = () => {
       filteredData = filteredData.filter((menu) => menu.is_spicy);
     }
 
-    //it will change original arra somehow, so don't need to assign it again
-    filteredData.sort((a, b) =>
-      sort === "lowToHigh" ? a.price - b.price : b.price - a.price
-    );
+   if(sort){
+     //it will change original arra somehow, so don't need to assign it again
+     filteredData.sort((a, b) =>
+     sort === "lowToHigh" ? a.price - b.price : b.price - a.price
+   );
+   }
 
     return filteredData;
   };
@@ -41,7 +43,10 @@ export const Menus = () => {
   const menus = transformData(data?.menus?.data?.menu);
 
   useEffect(() => {
-    dispatch(fetchDataFromFakeFetch());
+    // Bcz it was calling an api everytime we come on this component.
+    if (data.status === "init") {
+      dispatch(fetchDataFromFakeFetch());
+    }
   }, []);
 
   return (
@@ -60,9 +65,9 @@ export const Menus = () => {
           )}
         </>
       )}
-      {
-        data.status === 'loading' && <Loading text="Getting menus, Please wait"/>
-      }
+      {data.status === "loading" && (
+        <Loading text="Getting menus, Please wait" />
+      )}
     </div>
   );
 };
