@@ -6,6 +6,7 @@ import { MenuItem } from "../../types";
 import "./menus.css";
 import { Navbar } from "../navbar/Navbar";
 import { Filters } from "../filters/Filters";
+import { Loading } from "../loading/Loading";
 
 export const Menus = () => {
   const dispatch = useAppDispatch();
@@ -37,7 +38,7 @@ export const Menus = () => {
     return filteredData;
   };
 
-  const menus = transformData(data?.menus?.data?.menu)
+  const menus = transformData(data?.menus?.data?.menu);
 
   useEffect(() => {
     dispatch(fetchDataFromFakeFetch());
@@ -47,12 +48,21 @@ export const Menus = () => {
     <div className="menus_container">
       <Navbar />
       <Filters />
-      <div className="menus">
-        {menus?.map((menu: MenuItem) => (
-          <MenuCard key={menu.id} menu={menu} />
-        ))}
-      </div>
-      {menus?.length === 0 && <h2 className="no_items_msg">No items found</h2>}
+      {data.status === "success" && (
+        <>
+          <div className="menus">
+            {menus?.map((menu: MenuItem) => (
+              <MenuCard key={menu.id} menu={menu} />
+            ))}
+          </div>
+          {menus?.length === 0 && (
+            <h2 className="no_items_msg">No items found</h2>
+          )}
+        </>
+      )}
+      {
+        data.status === 'loading' && <Loading text="Getting menus, Please wait"/>
+      }
     </div>
   );
 };

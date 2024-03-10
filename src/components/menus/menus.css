@@ -1,18 +1,11 @@
 .menus_container {
     width: 80%;
-    margin: auto;
-    margin-bottom: 1rem;
+    margin: 1rem auto;
 }
 
 .menus {
     display: flex;
-    gap: 1.5rem;
+    gap: 5rem;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-@media (min-width:720px){
-    .menus{
-        gap:3rem
-    }
 }
